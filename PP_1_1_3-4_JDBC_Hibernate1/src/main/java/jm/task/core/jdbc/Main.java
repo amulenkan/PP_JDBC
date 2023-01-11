@@ -9,10 +9,8 @@ import java.sql.SQLException;
 public class Main {
     public static void main(String[] args) throws SQLException {
 
-        // реализуйте алгоритм здесь
-        /*Util util = new Util();
+      Util util = new Util();
         util.getConnection();
-        //UserDao userDao = new UserDaoJDBCImpl();
         UserService userService = new UserServiceImpl();
 
         userService.createUsersTable();
@@ -23,6 +21,6 @@ public class Main {
         userService.removeUserById(2);
         userService.getAllUsers();
         userService.cleanUsersTable();
-        userService.dropUsersTable();*/
+        userService.dropUsersTable();
     }
 }
