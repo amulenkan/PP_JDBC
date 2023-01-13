@@ -10,11 +10,11 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public UserDaoJDBCImpl() {
     }
+
     public void createUsersTable() {
         try(Connection conn = Util.getConnection();
             Statement statement = conn.createStatement()) {
-            conn.setAutoCommit(false);
-            statement.executeUpdate("CREATE TABLE IF NOT EXISTS users (id INT PRIMARY KEY not NULL auto_increment, name VARCHAR(20) not NULL, lastName VARCHAR(20) not NULL, age INT not NULL)");
+            statement.executeUpdate("CREATE TABLE IF NOT EXISTS users (id INT PRIMARY KEY NOT NULL auto_increment, name VARCHAR(20) NOT NULL, lastName VARCHAR(20) NOT NULL, age INT NOT NULL)");
             conn.commit();
         } catch (SQLException e) {
             try {
@@ -47,7 +47,6 @@ public class UserDaoJDBCImpl implements UserDao {
             preparedStatement.setString(2, lastName);
             preparedStatement.setByte(3, age);
             preparedStatement.executeUpdate();
-            System.out.println("User с именем - " + name + " добавлен в базу данных");
             conn.commit();
         } catch (SQLException e) {
             try {
@@ -95,7 +94,6 @@ public class UserDaoJDBCImpl implements UserDao {
                 throw new RuntimeException(ex);
             }
         }
-        System.out.println(userList);
         return userList;
     }
 
